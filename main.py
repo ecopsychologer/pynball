@@ -19,6 +19,16 @@ else:
     print("No joystick found. Please connect a joystick.")
     running = False
 
+left_flipper_pressed = False
+right_flipper_pressed = False
+
+def handle_flipper_trigger(event):
+    global left_flipper_pressed, right_flipper_pressed
+    if event.axis == 6:  # Assuming axis 6 is the left trigger
+        left_flipper_pressed = event.value > 0.1  # Deadzone adjustment
+    elif event.axis == 7:  # Assuming axis 7 is the right trigger
+        right_flipper_pressed = event.value > 0.1
+
 # Colors
 WHITE = (255, 255, 255)
 
