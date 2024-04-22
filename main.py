@@ -10,6 +10,15 @@ SCREEN_HEIGHT = 800
 screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
 pygame.display.set_caption("Pynball")
 
+# Joystick initialization
+pygame.joystick.init()
+if pygame.joystick.get_count() > 0:
+    joystick = pygame.joystick.Joystick(0)
+    joystick.init()
+else:
+    print("No joystick found. Please connect a joystick.")
+    running = False
+
 # Colors
 WHITE = (255, 255, 255)
 
