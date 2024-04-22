@@ -54,6 +54,27 @@ while running:
     # Update display
     pygame.display.flip()
 
+while running:
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            running = False
+        elif event.type == pygame.JOYAXISMOTION:
+            handle_flipper_trigger(event)
+            handle_joystick_movement(event)
+
+    # Clear the screen
+    screen.fill(WHITE)
+
+    # Handle input
+    if left_flipper_pressed:
+        # hit the ball
+    if right_flipper_pressed:
+        # hit the ball
+    if ball_launcher_position:
+        # launch the ball
+    # Update display (for later)
+    # pygame.display.flip()
+
 # Quit Pygame
 pygame.quit()
 sys.exit()
